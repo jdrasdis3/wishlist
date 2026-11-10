@@ -379,7 +379,7 @@ function handleCode(code){
     if(t){
       scanned=t;
       $("foundBox").innerHTML='<div class="found">'+(t.image?'<img src="'+esc(t.image)+'" alt="">':'')+'<div><b>'+esc(t.item)+'</b><br><span class="hint">'+
-        (t.options.length>1?'The size on the tag is picked. Tap a different size if you need one.':'Add a note if you like, then add it to your list.')+'</span></div></div>';
+        (t.options.length>1?'Adding it to your list…':'Add a note if you like, then add it to your list.')+'</span></div></div>';
       $("manual").hidden=true;
       if(t.options.length>1){
         $("chips").innerHTML=t.options.map(function(o,i){
@@ -389,7 +389,7 @@ function handleCode(code){
         $("sizePick").hidden=false;
         var si=0; t.options.forEach(function(o,i){ if(o.variationId===t.scannedId) si=i; });
         pick=t.options[si]; $("chips").children[si].classList.add("on");
-      } else { pick=t.options[0]; }
+      } else { pick=t.options[0]; } $("sizePick").hidden=true; $("addForm").dispatchEvent(new Event("submit",{cancelable:true}));
     }else{
       scanned={sku:code,options:[]};
       $("item").focus();
