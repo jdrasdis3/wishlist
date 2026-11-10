@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Drasdis &amp; Son Wish List</title>
+<meta name="description" content="Start your Drasdis &amp; Son wish list, or see one a family member shared.">
+<style>html,body{margin:0;padding:0;background:#f5f1ec}#dwl{border-radius:0!important;min-height:100vh}</style>
+</head>
+<body>
+<style>
+#dwl{--bg:#f5f1ec;--card:#fff;--ink:#1a1714;--muted:#6b625a;--line:#e3dad0;--dark:#141414;--copper:#c98a5e;--soft:#f6e8dc;--bad:#a33a2b;--ok:#1e7a46}
+#dwl, #dwl *{box-sizing:border-box}
+#dwl{margin:0 auto;background:var(--bg);color:var(--ink);font:16px/1.45 -apple-system,system-ui,"Segoe UI",Roboto,sans-serif}
+#dwl header{background:var(--dark);padding:18px 16px 16px;text-align:center}
+#dwl header .logo{display:block;height:112px;width:auto;margin:0 auto 10px}
+#dwl header div{color:#cfc5bb;font-size:14px;letter-spacing:.1em;text-transform:uppercase}
+#dwl main{max-width:520px;margin:0 auto;padding:16px}
+#dwl .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+#dwl h2{margin:0 0 4px;font-size:20px}
+#dwl label,#dwl .lbl{display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:12px 0 4px}
+#dwl input,#dwl textarea{font:inherit;font-size:16px;width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);min-height:48px}
+#dwl button{font:inherit;font-weight:600;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:12px 16px;min-height:48px;width:100%;margin-top:14px;cursor:pointer}
+#dwl button:disabled{opacity:.5}
+#dwl .primary{background:var(--dark);border-color:var(--dark);color:#fff}
+#dwl .copper{background:var(--copper);border-color:var(--copper);color:#241a03}
+#dwl .grid{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
+#dwl .hint{font-size:14px;color:var(--muted)}
+#dwl .err{color:var(--bad);font-size:14px;margin-top:8px}
+#dwl .ok{color:var(--ok);font-size:14px;margin-top:8px}
+#dwl .found{background:var(--soft);border-radius:10px;padding:12px;margin-top:12px;font-size:15px;display:flex;gap:12px;align-items:flex-start}
+#dwl .found img{width:64px;height:64px;object-fit:cover;border-radius:8px;flex:none;background:#fff}
+#dwl .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+#dwl .chip{width:auto;margin:0;min-height:42px;padding:6px 12px;font-weight:600;font-size:15px;display:flex;flex-direction:column;align-items:center;line-height:1.15}
+#dwl .chip small{font-weight:500;font-size:11px;color:var(--muted)}
+#dwl .chip.on{background:var(--dark);border-color:var(--dark);color:#fff}#dwl .chip.on small{color:#cfc5bb}
+#dwl .item{display:flex;justify-content:space-between;gap:10px;align-items:center;border-top:1px solid var(--line);padding:10px 0}
+#dwl .item:first-child{border-top:0}
+#dwl .item b{display:block}
+#dwl .item.bought b{text-decoration:line-through;color:var(--muted)}
+#dwl .pill{display:inline-block;background:var(--soft);color:#5a3216;border-radius:999px;padding:1px 9px;font-size:13px;font-weight:600;margin-right:6px}
+#dwl .pill.got{background:#e1f3e8;color:var(--ok)}
+#dwl .x{width:auto;min-height:36px;padding:4px 12px;margin:0;font-size:14px;flex:none}
+#dwl .link{font-family:ui-monospace,Menlo,monospace;font-size:13px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px;overflow-wrap:anywhere;user-select:all}
+#dwl .sizes{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:15px}
+#dwl summary{cursor:pointer;font-weight:600;margin-top:14px}
+#dwl [hidden]{display:none!important}
+/* ---- Seasonal themes (set from the staff app; "Auto" follows the calendar) ---- */#dwl header{position:relative;overflow:hidden}
+#dwl header>*{position:relative;z-index:1}
+#dwl[data-theme="christmas"]{--bg:#f4f1ea;--dark:#1d3a2a;--copper:#b3261e;--soft:#f4e2dc}
+#dwl[data-theme="christmas"] header{background:#1d3a2a;border-bottom:5px solid #b3261e}
+#dwl[data-theme="christmas"] header .tag{color:#ecd9a0}
+#dwl[data-theme="christmas"] header::before{content:"";position:absolute;inset:-60px 0 0;z-index:0;opacity:.55;
+  background-image:radial-gradient(2px 2px at 20px 30px,#fff 50%,transparent 51%),radial-gradient(2px 2px at 90px 80px,#fff 50%,transparent 51%),
+  radial-gradient(1.5px 1.5px at 150px 20px,#fff 50%,transparent 51%),radial-gradient(2.5px 2.5px at 210px 110px,#fff 50%,transparent 51%),
+  radial-gradient(1.5px 1.5px at 60px 140px,#fff 50%,transparent 51%),radial-gradient(2px 2px at 270px 60px,#fff 50%,transparent 51%);
+  background-size:300px 160px;animation:snow 12s linear infinite}
+@keyframes snow{to{background-position:30px 160px}}
+#dwl[data-theme="valentine"]{--bg:#fbf3f4;--dark:#5c1a2b;--copper:#c2364f;--soft:#f8e1e6}
+#dwl[data-theme="valentine"] header{background:#5c1a2b;border-bottom:5px solid #c2364f}
+#dwl[data-theme="valentine"] header .tag{color:#f5c6d0}
+#dwl[data-theme="fathers"]{--bg:#f2f4f7;--dark:#1f2d44;--copper:#c98a5e;--soft:#e4eaf3}
+#dwl[data-theme="fathers"] header{background:#1f2d44;border-bottom:5px solid #c98a5e}
+#dwl[data-theme="fathers"] header .tag{color:#d6deea}
+#dwl[data-theme="christmas"] .copper,#dwl[data-theme="valentine"] .copper{color:#fff}
+@media (prefers-reduced-motion:reduce){#dwl header::before{animation:none!important}}
+
+#dwl{display:block;max-width:100%;text-align:left;border-radius:12px;overflow:hidden}
+#dwl input,#dwl textarea,#dwl button{letter-spacing:normal;text-transform:none;box-shadow:none}
+#dwl h2{color:var(--ink);font-family:inherit;letter-spacing:normal;text-transform:none}
+#dwl .tag{color:#cfc5bb}
+/* live scanner */
+#dwl-scanner{position:fixed;inset:0;z-index:2147483000;background:#000;display:flex;flex-direction:column}
+#dwl-scanner video{flex:1;width:100%;height:100%;object-fit:cover;min-height:0}
+#dwl-scanner .frame{position:absolute;left:8%;right:8%;top:38%;height:22%;border:3px solid #fff;border-radius:14px;box-shadow:0 0 0 9999px rgba(0,0,0,.45);pointer-events:none}
+#dwl-scanner .frame::after{content:"";position:absolute;left:4%;right:4%;top:50%;height:2px;background:#ff4b3e;opacity:.85}
+#dwl-scanner .top{position:absolute;top:0;left:0;right:0;padding:calc(16px + env(safe-area-inset-top,0px)) 16px 16px;color:#fff;text-align:center;font:600 17px/1.35 -apple-system,system-ui,sans-serif;background:linear-gradient(rgba(0,0,0,.6),transparent)}
+#dwl-scanner .bot{position:absolute;bottom:0;left:0;right:0;padding:16px 16px calc(20px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:10px;background:linear-gradient(transparent,rgba(0,0,0,.7))}
+#dwl-scanner button{font:600 16px -apple-system,system-ui,sans-serif;border-radius:10px;min-height:48px;border:0;cursor:pointer}
+#dwl-scanner .cancel{background:#fff;color:#111}
+#dwl-scanner .alt{background:transparent;color:#fff;text-decoration:underline}
+</style>
+<div id="dwl" data-theme="standard">
+<header><img class="logo" src="data:image/png;base64,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" alt="Drasdis &amp; Son"><div class="tag" id="dwl-tag">Wish List</div></header>
+<main>
+  <!-- Shared view: what family sees from a link -->
+  <section id="dwl-shared" hidden>
+    <div class="card"><h2 id="dwl-shTitle">Wish list</h2><div class="hint">Stop in at Drasdis &amp; Son or give us a call, and we'll help you pick it out.</div>
+      <div id="dwl-shSizes"></div><div id="dwl-shNotes"></div></div>
+    <div class="card"><div id="dwl-shList"></div></div>
+  </section>
+
+  <section id="dwl-step1" class="card" hidden>
+    <h2 id="dwl-t1">Start your wish list</h2>
+    <div class="hint" id="dwl-i1">Find what you like in the store and we'll keep it on file with your sizes, so anyone shopping for you gets it right.</div>
+    <label for="dwl-phone">Your phone number</label>
+    <input id="dwl-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(570) 555-1234">
+    <button class="primary" id="dwl-go">Continue</button>
+    <div class="err" id="dwl-err1"></div>
+  </section>
+
+  <section id="dwl-step2" hidden>
+    <div class="card">
+      <h2 id="dwl-hello">Welcome</h2>
+      <div class="hint" id="dwl-phoneShow"></div>
+      <label for="dwl-name">Your name</label>
+      <input id="dwl-name" autocomplete="name" placeholder="First and last name">
+      <label for="dwl-email">Email (optional)</label>
+      <input id="dwl-email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com">
+      <label for="dwl-notes">Likes &amp; notes</label>
+      <textarea id="dwl-notes" rows="2" placeholder="Favorite colors, brands, styles"></textarea>
+      <button id="dwl-saveMe">Save my info</button>
+      <div id="dwl-msgMe"></div>
+    </div>
+
+    <div class="card">
+      <h2>Add an item</h2>
+      <button class="copper" id="dwl-scanBtn">Scan a tag</button>
+      <div class="hint" style="margin-top:6px">Point your camera at the barcode on the price tag. It reads it on its own.</div>
+      <input type="file" id="dwl-photo" accept="image/*" capture="environment" hidden>
+      <label for="dwl-code">Or type the numbers under the barcode</label>
+      <div style="display:flex;gap:8px"><input id="dwl-code" inputmode="numeric" autocomplete="off" placeholder="e.g. 765803850787" style="flex:1;min-width:0">
+        <button type="button" id="dwl-codeBtn" style="width:auto;margin:0;flex:none">Look up</button></div>
+      <div id="dwl-foundBox"></div>
+      <form id="dwl-addForm">
+        <div id="dwl-sizePick" hidden><span class="lbl">Size</span><div class="chips" id="dwl-chips"></div></div>
+        <div id="dwl-manual">
+          <label for="dwl-item">Item</label>
+          <input id="dwl-item" placeholder="e.g. Navy quarter-zip sweater">
+          <label for="dwl-size">Size</label>
+          <input id="dwl-size" placeholder="e.g. L, 42R, 34x32">
+        </div>
+        <label for="dwl-note">Note (optional)</label>
+        <input id="dwl-note" placeholder="Color, fit, anything we should know">
+        <button class="primary" type="submit" id="dwl-addBtn">Add to my list</button>
+      </form>
+      <div id="dwl-msgAdd"></div>
+    </div>
+
+    <div class="card">
+      <h2>My list</h2>
+      <div id="dwl-list"></div>
+    </div>
+
+    <div class="card" id="dwl-shareCard" hidden>
+      <h2>Share your list</h2>
+      <div class="hint">Send this link to family. They'll see your list and sizes, and items already bought get marked so nobody doubles up. You won't see what's been bought.</div>
+      <div class="link" id="dwl-shareLink" style="margin-top:10px"></div>
+      <button id="dwl-shareBtn" class="copper">Share link</button>
+      <div id="dwl-msgShare"></div>
+    </div>
+    <div class="card">
+      <details id="dwl-sizesBox">
+        <summary style="margin-top:0">Your sizes</summary>
+        <div class="hint" style="margin-top:6px">Optional. Helps anyone shopping for you get the right fit.</div>
+        <div class="grid" id="dwl-sizes"></div>
+        <button id="dwl-saveSizes">Save my sizes</button>
+        <div id="dwl-msgSizes"></div>
+      </details>
+    </div>
+    <button id="dwl-restart">Not you? Start over</button>
+  </section>
+</main>
+
+<div id="dwl-scanner" hidden>
+  <video id="dwl-video" playsinline muted autoplay></video>
+  <div class="frame"></div>
+  <div class="top">Line up the barcode inside the box</div>
+  <div class="bot"><button type="button" class="cancel" id="dwl-scanCancel">Cancel</button>
+    <button type="button" class="alt" id="dwl-scanPhoto">Take a photo instead</button></div>
+</div></div>
+<script src="https://unpkg.com/@zxing/library@0.21.3/umd/index.min.js"></script>
+<script>
+(function(){
+
+var API="https://script.google.com/macros/s/AKfycbwHI-THpeQmeazct0FcVm4U4ImZU8dWtxu8kXqhKlz_tV_iSj1WUphsgTTNAtS6iQ/exec";
+var PAGE=location.origin+location.pathname;
+var SHARE=(new URLSearchParams(location.search).get("list")||"").replace(/[^A-Za-z0-9]/g,"").slice(0,20);
+var THEME="standard";
+var COPIES={
+  standard:{tag:"Wish List",title:"Start your wish list",intro:"Find what you like in the store and we'll keep it on file with your sizes, so anyone shopping for you gets it right.",list:"wish list"},
+  christmas:{tag:"Christmas Wish List",title:"Start your Christmas list",intro:"Pick out what you'd love to find under the tree. We'll keep it on file with your sizes, so Santa's helpers get it right.",list:"Christmas wish list"},
+  valentine:{tag:"Valentine's Wish List",title:"Start your Valentine's list",intro:"Pick out what you'd love for Valentine's Day. We'll keep it on file with your sizes, so your valentine gets it right.",list:"Valentine's wish list"},
+  fathers:{tag:"Father's Day Wish List",title:"Start your Father's Day list",intro:"Dads, pick out what you like. We'll keep it on file with your sizes, so the family gets it right.",list:"Father's Day wish list"}
+};
+var COPY=COPIES.standard;
+function applyTheme(t){
+  if(!COPIES[t]) t="standard";
+  THEME=t; COPY=COPIES[t];
+  document.getElementById("dwl").setAttribute("data-theme",t);
+  $("tag").textContent=COPY.tag; $("t1").textContent=COPY.title; $("i1").textContent=COPY.intro;
+  if(lastShared) renderShared(lastShared);
+}
+var lastShared=null;
+var SIZES=[["shirt","Shirt"],["neck","Neck"],["sleeve","Sleeve"],["jacket","Suit / sportcoat"],["waist","Waist"],["inseam","Inseam"],["shoe","Shoe"],["hat","Hat"]];
+var phone="", scanned=null, pick=null, shareUrl="";
+function $(id){return document.getElementById("dwl-"+id);}
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+function digits(s){s=String(s||"").replace(/\D/g,"");return (s.length===11&&s[0]==="1")?s.slice(1):s;}
+function fmt(d){return "("+d.slice(0,3)+") "+d.slice(3,6)+"-"+d.slice(6);}
+function money(p){return (p===""||p==null||isNaN(Number(p)))?"":"$"+Number(p).toFixed(Number(p)%1?2:0);}
+function msg(el,text,bad){el.className=bad?"err":"ok";el.textContent=text;}
+// Talks to the Apps Script behind the page (same sheets as before).
+function server(fn,args,ok,errEl,btn){
+  if(btn)btn.disabled=true;
+  fetch(API,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({fn:fn,args:args}),redirect:"follow"})
+    .then(function(r){return r.json();})
+    .then(function(j){ if(btn)btn.disabled=false; if(!j||!j.ok){ if(errEl) msg(errEl,(j&&j.error)||"Something went wrong. Please try again.",true); return; } ok(j.result); })
+    .catch(function(){ if(btn)btn.disabled=false; if(errEl) msg(errEl,"Couldn't reach the store. Check your connection and try again.",true); });
+}
+function sizesHtml(s){
+  return SIZES.filter(function(k){return s&&s[k[0]];}).map(function(k){return '<span>'+esc(k[1])+': <b>'+esc(s[k[0]])+'</b></span>';}).join("");
+}
+
+// ---------- shared (family) view ----------
+if(SHARE){
+  $("shared").hidden=false;
+  $("shList").innerHTML='<div class="hint">Loading the list…</div>';
+  server("getSharedList",[SHARE],function(d){
+    if(!d){$("shList").innerHTML='<div class="hint">We couldn\'t find this wish list. Ask for a new link, or call the store.</div>';return;}
+    lastShared=d; renderShared(d);
+  },$("shList"));
+} else {
+  $("step1").hidden=false;
+}
+function renderShared(d){
+  {
+    $("shTitle").textContent=(d.name?d.name+"'s ":"A ")+COPY.list;
+    var sz=sizesHtml(d.sizes);
+    $("shSizes").innerHTML=sz?'<span class="lbl">Sizes</span><div class="sizes">'+sz+'</div>':"";
+    $("shNotes").innerHTML=d.notes?'<span class="lbl">Likes &amp; notes</span><div>'+esc(d.notes)+'</div>':"";
+    $("shList").innerHTML=d.items.length?d.items.map(function(i){
+      return '<div class="item'+(i.bought?' bought':'')+'"><div><b>'+esc(i.item)+'</b>'+(i.size?'<span class="pill">'+esc(i.size)+'</span>':'')+
+        (i.bought?'<span class="pill got">Already bought</span>':'<span class="hint">'+money(i.price)+'</span>')+
+        (i.note?'<div class="hint">'+esc(i.note)+'</div>':'')+'</div></div>';
+    }).join(""):'<div class="hint">Nothing on this list yet.</div>';
+  }
+}
+server("getTheme",[],applyTheme,null);
+
+// ---------- customer's own list ----------
+$("sizes").innerHTML=SIZES.map(function(s){return '<div><label for="dwl-sz_'+s[0]+'">'+s[1]+'</label><input id="dwl-sz_'+s[0]+'"></div>';}).join("");
+
+// Reads a barcode from a phone photo: tries several sizes, a center band, and a 90° turn.
+function decodeBarcodePhoto(file){
+  return new Promise(function(resolve,reject){
+    var url=URL.createObjectURL(file), img=new Image();
+    img.onerror=function(){URL.revokeObjectURL(url);reject(new Error("bad image"));};
+    img.onload=function(){
+      URL.revokeObjectURL(url);
+      var Z=window.ZXing, hints=new Map();
+      hints.set(Z.DecodeHintType.TRY_HARDER,true);
+      hints.set(Z.DecodeHintType.POSSIBLE_FORMATS,[Z.BarcodeFormat.UPC_A,Z.BarcodeFormat.EAN_13,Z.BarcodeFormat.UPC_E,Z.BarcodeFormat.EAN_8,
+        Z.BarcodeFormat.CODE_128,Z.BarcodeFormat.CODE_39,Z.BarcodeFormat.CODE_93,Z.BarcodeFormat.ITF,Z.BarcodeFormat.CODABAR,Z.BarcodeFormat.QR_CODE]);
+      var reader=new Z.MultiFormatReader(); reader.setHints(hints);
+      var W=img.naturalWidth, H=img.naturalHeight;
+      // [scale target (long side), crop: 0 = whole photo, 1 = middle half, 2 = middle third], rotation
+      var tries=[];
+      [1400,900,2000,600].forEach(function(t){[0,1,2].forEach(function(c){[0,90].forEach(function(r){tries.push([t,c,r]);});});});
+      var i=0;
+      function next(){
+        if(i>=tries.length) return reject(new Error("no barcode"));
+        var t=tries[i++], crop=t[1], rot=t[2];
+        var f=crop===0?1:crop===1?0.5:0.34;
+        var sw=W*f, sh=H*f, sx=(W-sw)/2, sy=(H-sh)/2;
+        var k=t[0]/Math.max(sw,sh); if(k>1)k=1;
+        var cw=Math.round(sw*k), ch=Math.round(sh*k);
+        var c=document.createElement("canvas"), g=c.getContext("2d");
+        if(rot){c.width=ch;c.height=cw;g.translate(ch/2,cw/2);g.rotate(Math.PI/2);g.drawImage(img,sx,sy,sw,sh,-cw/2,-ch/2,cw,ch);}
+        else{c.width=cw;c.height=ch;g.drawImage(img,sx,sy,sw,sh,0,0,cw,ch);}
+        try{
+          var res=reader.decode(new Z.BinaryBitmap(new Z.HybridBinarizer(new Z.HTMLCanvasElementLuminanceSource(c))));
+          return resolve(res.getText());
+        }catch(e){ reader.reset(); }
+        setTimeout(next,0);   // keep the page responsive between tries
+      }
+      next();
+    };
+    img.src=url;
+  });
+}
+
+
+$("go").onclick=function(){
+  var d=digits($("phone").value);
+  if(d.length!==10){msg($("err1"),"Please enter a 10-digit phone number.",true);return;}
+  $("err1").textContent="";
+  server("getCustomer",[d],function(res){
+    phone=d; var c=res.customer;
+    $("hello").textContent=c.found&&c.name?"Welcome back, "+c.name.split(" ")[0]+"!":"Welcome!";
+    $("phoneShow").textContent=fmt(d);
+    $("name").value=c.name||""; $("email").value=c.email||""; $("notes").value=c.notes||"";
+    SIZES.forEach(function(s){$("sz_"+s[0]).value=(c.sizes&&c.sizes[s[0]])||"";});
+    $("sizesBox").open=false;
+    setShare(c.shareUrl);
+    renderList(res.items);
+    $("step1").hidden=true; $("step2").hidden=false; window.scrollTo(0,0);
+  },$("err1"),$("go"));
+};
+$("phone").addEventListener("keydown",function(e){if(e.key==="Enter")$("go").click();});
+
+function custData(){
+  var sizes={}; SIZES.forEach(function(s){sizes[s[0]]=$("sz_"+s[0]).value;});
+  return {phone:phone,name:$("name").value,email:$("email").value,notes:$("notes").value,sizes:sizes};
+}
+function setShare(u){ var m=/list=([A-Za-z0-9]+)/.exec(u||""); if(m){ shareUrl=PAGE+"?list="+m[1]; $("shareLink").textContent=shareUrl; $("shareCard").hidden=false; } }
+$("saveSizes").onclick=function(){
+  server("saveCustomer",[custData()],function(r){setShare(r.shareUrl);msg($("msgSizes"),"Sizes saved.");},$("msgSizes"),$("saveSizes"));
+};
+$("saveMe").onclick=function(){
+  server("saveCustomer",[custData()],function(r){setShare(r.shareUrl);msg($("msgMe"),"Saved.");},$("msgMe"),$("saveMe"));
+};
+
+// ---------- scanning & size picking ----------
+function clearScan(){
+  scanned=null; pick=null; $("foundBox").innerHTML=""; $("sizePick").hidden=true; $("chips").innerHTML=""; $("manual").hidden=false;
+}
+var scan={stream:null,timer:null,detector:null,reader:null,canvas:null,n:0};
+function photoInstead(){ closeScanner(); $("photo").value=""; $("photo").click(); }
+function openScanner(){
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){ photoInstead(); return; }
+  clearScan(); $("scanner").hidden=false;
+  navigator.mediaDevices.getUserMedia({audio:false,video:{facingMode:{ideal:"environment"},width:{ideal:1920},height:{ideal:1080}}})
+    .then(function(st){
+      if($("scanner").hidden){ st.getTracks().forEach(function(t){t.stop();}); return; }
+      scan.stream=st; var v=$("video"); v.srcObject=st; v.play().catch(function(){});
+      scan.detector=null;
+      if("BarcodeDetector" in window){ try{ scan.detector=new BarcodeDetector({formats:["upc_a","upc_e","ean_13","ean_8","code_128","code_39","code_93","itf","codabar","qr_code"]}); }catch(e){ scan.detector=null; } }
+      if(!scan.reader && window.ZXing){
+        var Z=window.ZXing, h=new Map(); h.set(Z.DecodeHintType.TRY_HARDER,true);
+        h.set(Z.DecodeHintType.POSSIBLE_FORMATS,[Z.BarcodeFormat.UPC_A,Z.BarcodeFormat.EAN_13,Z.BarcodeFormat.UPC_E,Z.BarcodeFormat.EAN_8,Z.BarcodeFormat.CODE_128,Z.BarcodeFormat.CODE_39,Z.BarcodeFormat.CODE_93,Z.BarcodeFormat.ITF,Z.BarcodeFormat.CODABAR,Z.BarcodeFormat.QR_CODE]);
+        scan.reader=new Z.MultiFormatReader(); scan.reader.setHints(h);
+      }
+      tick();
+    })
+    .catch(function(){
+      closeScanner();
+      $("foundBox").innerHTML='<div class="found"><div>The camera didn\'t start. Allow camera access for this site in your phone\'s settings, or tap Scan a tag again and choose Take a photo instead. You can also type the numbers under the barcode.</div></div>';
+    });
+}
+function closeScanner(){
+  clearTimeout(scan.timer);
+  if(scan.stream){ scan.stream.getTracks().forEach(function(t){t.stop();}); scan.stream=null; }
+  $("video").srcObject=null; $("scanner").hidden=true;
+}
+function found(code){
+  if(navigator.vibrate) navigator.vibrate(60);
+  closeScanner(); $("code").value=code; clearScan(); handleCode(code);
+}
+function tick(){
+  if(!scan.stream) return;
+  var v=$("video");
+  if(v.readyState<2||!v.videoWidth){ scan.timer=setTimeout(tick,150); return; }
+  if(scan.detector){
+    scan.detector.detect(v).then(function(r){ if(r&&r.length&&r[0].rawValue) return found(r[0].rawValue); scan.timer=setTimeout(tick,120); })
+      .catch(function(){ scan.detector=null; scan.timer=setTimeout(tick,120); });
+    return;
+  }
+  if(!scan.reader){ scan.timer=setTimeout(tick,300); return; }
+  var W=v.videoWidth,H=v.videoHeight,c=scan.canvas||(scan.canvas=document.createElement("canvas")),g=c.getContext("2d",{willReadFrequently:true});
+  // alternate: the band inside the box, then the whole frame
+  var band=(scan.n++%2)===0, sx=0, sy=band?H*0.3:0, sw=W, sh=band?H*0.4:H, k=Math.min(1,1280/sw);
+  c.width=Math.round(sw*k); c.height=Math.round(sh*k); g.drawImage(v,sx,sy,sw,sh,0,0,c.width,c.height);
+  try{
+    var Z=window.ZXing, res=scan.reader.decode(new Z.BinaryBitmap(new Z.HybridBinarizer(new Z.HTMLCanvasElementLuminanceSource(c))));
+    if(res&&res.getText()) return found(res.getText());
+  }catch(e){ try{scan.reader.reset();}catch(_){} }
+  scan.timer=setTimeout(tick,90);
+}
+$("scanBtn").onclick=openScanner;
+$("scanCancel").onclick=closeScanner;
+$("scanPhoto").onclick=photoInstead;
+document.addEventListener("visibilitychange",function(){ if(document.hidden&&scan.stream) closeScanner(); });
+// Looks up a tag number (scanned or typed) in Square and shows the sizes.
+function handleCode(code){
+  code=String(code||"").trim(); if(!code)return;
+  $("foundBox").innerHTML='<div class="found"><div>Looking up '+esc(code)+'…</div></div>';
+  server("lookupTag",[code],function(t){
+    if(t){
+      scanned=t;
+      $("foundBox").innerHTML='<div class="found">'+(t.image?'<img src="'+esc(t.image)+'" alt="">':'')+'<div><b>'+esc(t.item)+'</b><br><span class="hint">'+
+        (t.options.length>1?'The size on the tag is picked. Tap a different size if you need one.':'Add a note if you like, then add it to your list.')+'</span></div></div>';
+      $("manual").hidden=true;
+      if(t.options.length>1){
+        $("chips").innerHTML=t.options.map(function(o,i){
+          return '<button type="button" class="chip" data-i="'+i+'">'+esc(o.size||"One size")+
+            '<small>'+(o.inStock===true?'In stock':o.inStock===false?'Can order':'')+(o.variationId===t.scannedId?' · this tag':'')+'</small></button>';
+        }).join("");
+        $("sizePick").hidden=false;
+        var si=0; t.options.forEach(function(o,i){ if(o.variationId===t.scannedId) si=i; });
+        pick=t.options[si]; $("chips").children[si].classList.add("on");
+      } else { pick=t.options[0]; }
+    }else{
+      scanned={sku:code,options:[]};
+      $("item").focus();
+      $("foundBox").innerHTML='<div class="found"><div>We didn\'t find tag '+esc(code)+' in the store system. Type a short description of the item and your size below.</div></div>';
+    }
+  },$("msgAdd"));
+}
+$("photo").onchange=function(){
+  var f=this.files&&this.files[0]; if(!f)return;
+  clearScan();
+  $("foundBox").innerHTML='<div class="found"><div>Reading the barcode…</div></div>';
+  decodeBarcodePhoto(f).then(function(code){ $("code").value=code; handleCode(code); }).catch(function(){
+    $("foundBox").innerHTML='<div class="found"><div>We couldn\'t read that barcode. Try again with the barcode filling most of the photo, or type the numbers under it above.</div></div>';
+  });
+};
+$("codeBtn").onclick=function(){ clearScan(); handleCode($("code").value); };
+$("code").addEventListener("keydown",function(e){ if(e.key==="Enter"){ e.preventDefault(); $("codeBtn").click(); } });
+$("chips").onclick=function(e){
+  var b=e.target.closest("button[data-i]"); if(!b||!scanned)return;
+  pick=scanned.options[+b.dataset.i];
+  Array.prototype.forEach.call($("chips").children,function(c){c.classList.toggle("on",c===b);});
+};
+
+$("addForm").onsubmit=function(e){
+  e.preventDefault();
+  var d=custData(), fromSquare=scanned&&scanned.options&&scanned.options.length;
+  if(fromSquare){
+    if(!pick){msg($("msgAdd"),"Tap your size first.",true);return;}
+    d.item=scanned.item; d.size=pick.size; d.sku=pick.sku; d.variationId=pick.variationId; d.price=pick.price;
+  }else{
+    if(!$("item").value.trim()){msg($("msgAdd"),"Please describe the item.",true);return;}
+    d.item=$("item").value; d.size=$("size").value; d.sku=(scanned&&scanned.sku)||""; d.variationId=""; d.price="";
+  }
+  d.note=$("note").value;
+  server("addItem",[d],function(r){
+    renderList(r.items); setShare(r.shareUrl); clearScan();
+    $("item").value=""; $("size").value=""; $("note").value="";
+    msg($("msgAdd"),"Added to your list.");
+  },$("msgAdd"),$("addBtn"));
+};
+
+function renderList(items){
+  if(!items||!items.length){$("list").innerHTML='<div class="hint">Nothing yet. Scan a tag or type an item above.</div>';return;}
+  $("list").innerHTML=items.map(function(i){
+    return '<div class="item"><div><b>'+esc(i.item)+'</b>'+(i.size?'<span class="pill">'+esc(i.size)+'</span>':'')+
+      '<span class="hint">'+money(i.price)+'</span>'+(i.note?'<div class="hint">'+esc(i.note)+'</div>':'')+
+      '</div><button class="x" data-id="'+esc(i.id)+'">Remove</button></div>';
+  }).join("");
+}
+$("list").onclick=function(e){
+  var b=e.target.closest("button[data-id]"); if(!b)return;
+  if(!b.dataset.sure){b.dataset.sure="1";b.textContent="Tap again";return;}
+  server("removeItem",[phone,b.dataset.id],renderList,$("msgAdd"),b);
+};
+
+$("shareBtn").onclick=function(){
+  if(!shareUrl)return;
+  var text="Here's my Drasdis & Son "+COPY.list+": "+shareUrl;
+  if(navigator.share){ navigator.share({title:"My wish list",text:text}).catch(function(){}); return; }
+  try{ navigator.clipboard.writeText(shareUrl).then(function(){msg($("msgShare"),"Link copied. Paste it into a text or email.");},function(){msg($("msgShare"),"Press and hold the link above to copy it.");}); }
+  catch(err){ msg($("msgShare"),"Press and hold the link above to copy it."); }
+};
+
+$("restart").onclick=function(){
+  phone="";shareUrl="";clearScan();$("phone").value="";$("code").value="";$("shareCard").hidden=true;
+  $("msgMe").textContent="";$("msgSizes").textContent="";$("msgAdd").textContent="";$("msgShare").textContent="";
+  $("step2").hidden=true;$("step1").hidden=false;window.scrollTo(0,0);
+};
+
+})();
+</script>
+</body>
+</html>
